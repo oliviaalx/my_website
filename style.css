@@ -1,63 +1,72 @@
 :root {
     --primary-colour: black;
     --primary-background: url('Images/ss133.gif');
-    --outline-colour: white;
-    --nav-colour: black;
-    --nav-text: white;
+    --text: white;
     --hover-colour:lightgreen;
-
-}
-.maincontainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh;
-    margin: 0% 15% 0% 15%;
-    gap: 10px;
 }
 
-body {
+body{
     background-image: var(--primary-background);
+    min-height: 100vh;
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-container{
+    display: grid;
+    width: 800px;
+    grid-template-areas: 
+        "header . ."
+        "navbar content content"
+        "left-content content content"
+        "footer footer footer";
+    grid-template-columns: 1fr 4fr;
+    gap: 3px;
+    font-family: "Space Mono", monospace;
+    color: var(--text);
+}
+
+.grid-container div{
+    background-color: var(--primary-colour);
+    padding: 5px;
+    margin: 2px;
+    outline: 1px solid white;
+}
+
+.grid-container p,h2,h4{
     margin: 0;
     padding: 0;
 }
 
-.navcontainter{
-    background-color: var(--nav-colour);
-    font-family: "Space Mono", monospace;
-    height: 70px;
-    font-size: 12px;
-    outline: 1px solid var(--outline-colour);
+.grid-container div.header{
+    grid-area: header;
+    text-align: center;
+}
+.grid-container div.navbar{
+    grid-area: navbar;
+}
+.grid-container div.content {
+  grid-area: content;
+}
+.grid-container div.left-content {
+  grid-area: left-content;
+}
+.grid-container div.footer {
+  grid-area: footer;
+  text-align: center;  
 }
 
-.navbar{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 80%;
-    margin: auto;
-}
-
-.navbar ul{
-    display: flex;
-}
-
-.navcontainter .navbar{
-    justify-content: space-between;
-}
-
-.navbar ul li{
+.navbar ul {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
-.navcontainter .navbar ul li {
-    padding: 10px;
-    margin: 0 10px;
-}
-
-.navbar a,h2{
-    color: var(--nav-text);
+.navbar ul li a{
+    color: var(--text);
 }
 
 .navbar a:hover {
@@ -65,23 +74,8 @@ body {
 }
 
 
-.footercontainer{
-    font-family: "Space Mono", monospace;
-    font-size: 12px;
-    background-color: brown;
-    height: 30px;
-}
-.sectioncontainer{
-    outline: 1px solid var(--outline-colour);
-    background-color: var(--primary-colour);
+.navbar a:link {
+    text-decoration: none;
 }
 
-p{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 80%;
-    margin: auto;
-    color: white;
-}
+
