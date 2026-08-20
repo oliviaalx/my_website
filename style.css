@@ -19,24 +19,29 @@ body{
     display: grid;
     width: 800px;
     grid-template-areas: 
-        "header . ."
-        "navbar content content"
-        "left-content content content"
+        ". header ."
+        "navbar content right-content"
+        ". content right-content2"
+        ". content right-content3"
         "footer footer footer";
-    grid-template-columns: 1fr 4fr;
-    gap: 3px;
+    grid-template-columns: 1fr 5fr 2fr;
+    grid-auto-rows: auto;
+    gap: 5px;
     font-family: "Space Mono", monospace;
     color: var(--text);
 }
+
+
 
 .grid-container div{
     background-color: var(--primary-colour);
     padding: 5px;
     margin: 2px;
     outline: 1px solid white;
+    font-size: 14px;
 }
 
-.grid-container p,h2,h4{
+.grid-container p,h2,h4,h3{
     margin: 0;
     padding: 0;
 }
@@ -51,8 +56,16 @@ body{
 .grid-container div.content {
   grid-area: content;
 }
-.grid-container div.left-content {
-  grid-area: left-content;
+.grid-container div.right-content {
+  grid-area: right-content;
+  text-align: center;
+  font-size: 12px;
+}
+.grid-container div.right-content2 {
+  grid-area: right-content2;
+}
+.grid-container div.right-content3 {
+  grid-area: right-content3;
 }
 .grid-container div.footer {
   grid-area: footer;
@@ -70,9 +83,8 @@ body{
 }
 
 .navbar a:hover {
-    color: var(--hover-colour);
+    color: var(--hover-colour)
 }
-
 
 .navbar a:link {
     text-decoration: none;
