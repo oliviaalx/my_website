@@ -19,26 +19,33 @@ body{
     display: grid;
     width: 800px;
     grid-template-areas: 
-        ". header ."
-        "navbar content right-content"
-        ". content right-content2"
-        ". content right-content3"
+        "header header header"
+        "left-container content right-container"
+        "left-container content right-container"
+        "left-container content right-container"
         "footer footer footer";
     grid-template-columns: 1fr 5fr 2fr;
-    grid-auto-rows: auto;
-    gap: 5px;
+    gap: 10px;
     font-family: "Space Mono", monospace;
     color: var(--text);
+    align-items: start;
+    font-size: 14px;
 }
 
 
-
 .grid-container div{
-    background-color: var(--primary-colour);
-    padding: 5px;
-    margin: 2px;
+    background-color: var(--primary-colour); 
+    
+}
+
+.left-container div{
     outline: 1px solid white;
-    font-size: 14px;
+    padding: 10px
+}
+
+.right-container div{
+    outline: 1px solid white;
+    padding: 10px
 }
 
 .grid-container p,h2,h4,h3{
@@ -49,37 +56,44 @@ body{
 .grid-container div.header{
     grid-area: header;
     text-align: center;
+    outline: 1px solid white;
+    padding: 10px
 }
-.grid-container div.navbar{
-    grid-area: navbar;
+.grid-container div.left-container{
+    grid-area: left-container;
 }
 .grid-container div.content {
   grid-area: content;
+  outline: 1px solid white;
+  padding: 10px
 }
-.grid-container div.right-content {
-  grid-area: right-content;
+.grid-container div.right-container {
+  grid-area: right-container;
   text-align: center;
-  font-size: 12px;
-}
-.grid-container div.right-content2 {
-  grid-area: right-content2;
-}
-.grid-container div.right-content3 {
-  grid-area: right-content3;
+  display: grid;
+  gap: 10px;
 }
 .grid-container div.footer {
   grid-area: footer;
-  text-align: center;  
+  text-align: center; 
+  outline: 1px solid white; 
+  padding: 10px
 }
 
 .navbar ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 10px;
 }
 
 .navbar ul li a{
     color: var(--text);
+}
+
+.navbar li a{
+    color: var(--text);
+    padding:5px 5px;
+    display:block;
 }
 
 .navbar a:hover {
@@ -90,4 +104,46 @@ body{
     text-decoration: none;
 }
 
+
+
+/* CRT Overlay (covers everything including h1) */
+body::before,
+body::after {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* clicks go through */
+  z-index: 2000;        /* above all content */
+}
+
+/* Scanlines */
+body::before {
+  background: linear-gradient(
+      rgba(18, 16, 16, 0) 50%, 
+      rgba(0, 0, 0, 0.25) 50%
+    ),
+    linear-gradient(
+      90deg, 
+      rgba(255, 0, 0, 0.06), 
+      rgba(0, 255, 0, 0.02), 
+      rgba(0, 0, 255, 0.06)
+    );
+  background-size: 100% 2px, 3px 100%;
+}
+
+/* Flicker overlay */
+body::after {
+  background: rgba(18, 16, 16, 0.1);
+  animation: flicker 0.15s infinite;
+}
+
+/* Flicker animation */
+@keyframes flicker {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.3; }
+}
 
