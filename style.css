@@ -19,11 +19,11 @@ body{
     display: grid;
     width: 800px;
     grid-template-areas: 
-        "header header header"
+        "header . ."
         "left-container content right-container"
         "left-container content right-container"
         "left-container content right-container"
-        "footer footer footer";
+        ". footer .";
     grid-template-columns: 1fr 5fr 2fr;
     gap: 10px;
     font-family: "Space Mono", monospace;
@@ -82,10 +82,13 @@ body{
 .grid-container div.footer {
   grid-area: footer;
   text-align: center; 
-  outline: 1px solid white; 
+  background-color: transparent;
   padding: 10px
 }
 
+
+
+/* navigation bar */
 .navbar ul {
     list-style-type: none;
     margin: 0px;
