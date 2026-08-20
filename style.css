@@ -32,6 +32,11 @@ body{
     font-size: 14px;
 }
 
+.image img{
+    width:100%;
+    height:auto;
+    outline: none;
+}
 
 .grid-container div{
     background-color: var(--primary-colour); 
@@ -42,6 +47,7 @@ body{
     outline: 1px solid white;
     padding: 10px
 }
+
 
 .right-container div{
     outline: 1px solid white;
@@ -65,7 +71,7 @@ body{
 .grid-container div.content {
   grid-area: content;
   outline: 1px solid white;
-  padding: 10px
+  padding: 10px;
 }
 .grid-container div.right-container {
   grid-area: right-container;
