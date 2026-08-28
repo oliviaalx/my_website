@@ -1,15 +1,15 @@
 :root {
-    --primary-colour: black;
-    --primary-background: url('Images/ss133.gif');
-    --text: white;
-    --hover-colour:lightgreen;
+    --primary-colour: pink;
+    --primary-background: url('Images/gifbground-804-0005.gif');
+    --text: palevioletred;
+    --hover-colour:palevioletred;
 }
 
 body{
     background-image: var(--primary-background);
     min-height: 100vh;
     display: flex;
-    margin: 0px;
+    margin: 10px;
     padding: 0px;
     align-items: center;
     justify-content: center;
@@ -19,7 +19,7 @@ body{
     display: grid;
     width: 800px;
     grid-template-areas: 
-        "header . ."
+        "header header ."
         "left-container content right-container"
         "left-container content right-container"
         "left-container content right-container"
@@ -32,26 +32,30 @@ body{
     font-size: 14px;
 }
 
+
 .image img{
     width:100%;
     height:auto;
     outline: none;
 }
 
-.grid-container div{
-    background-color: var(--primary-colour); 
-    
+.content{
+    height: 400px;
+    overflow: auto;
 }
 
+
 .left-container div{
-    outline: 1px solid white;
-    padding: 10px
+    outline: 3px solid palevioletred;
+    background-color: var(--primary-colour);
+    padding: 10px; 
 }
 
 
 .right-container div{
-    outline: 1px solid white;
-    padding: 10px
+    outline: 3px solid palevioletred;
+    padding: 10px;
+    background-color: var(--primary-colour);
 }
 
 .grid-container p,h2,h4,h3{
@@ -62,7 +66,8 @@ body{
 .grid-container div.header{
     grid-area: header;
     text-align: center;
-    outline: 1px solid white;
+    outline: 3px solid palevioletred;
+    background-color: var(--primary-colour);
     padding: 10px
 }
 .grid-container div.left-container{
@@ -70,7 +75,8 @@ body{
 }
 .grid-container div.content {
   grid-area: content;
-  outline: 1px solid white;
+  outline: 3px solid palevioletred;
+  background-color: var(--primary-colour);
   padding: 10px;
 }
 .grid-container div.right-container {
@@ -109,8 +115,9 @@ body{
     color: var(--hover-colour)
 }
 
-.navbar a:link {
-    text-decoration: none;
+li a:hover {
+  transform:rotate(-15deg); /* play with this 15deg value, works w/ negatives too! */
+  /* more CSS transform options: https://developer.mozilla.org/en-US/docs/Web/CSS/transform */
 }
 
 
@@ -127,32 +134,5 @@ body::after {
   height: 100%;
   pointer-events: none; /* clicks go through */
   z-index: 2000;        /* above all content */
-}
-
-/* Scanlines */
-body::before {
-  background: linear-gradient(
-      rgba(18, 16, 16, 0) 50%, 
-      rgba(0, 0, 0, 0.25) 50%
-    ),
-    linear-gradient(
-      90deg, 
-      rgba(255, 0, 0, 0.06), 
-      rgba(0, 255, 0, 0.02), 
-      rgba(0, 0, 255, 0.06)
-    );
-  background-size: 100% 2px, 3px 100%;
-}
-
-/* Flicker overlay */
-body::after {
-  background: rgba(18, 16, 16, 0.1);
-  animation: flicker 0.15s infinite;
-}
-
-/* Flicker animation */
-@keyframes flicker {
-  0%, 100% { opacity: 0.1; }
-  50% { opacity: 0.3; }
 }
 
