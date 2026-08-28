@@ -45,6 +45,11 @@ body{
     overflow: auto;
 }
 
+.content h3{
+    margin-top: 0px ;
+    margin-bottom: 20px;
+}
+
 
 .left-container div{
     outline: 3px solid palevioletred;
@@ -59,7 +64,7 @@ body{
     background-color: var(--primary-colour);
 }
 
-.grid-container p,h2,h4,h3{
+.grid-container p,h2,h4{
     margin: 0;
     padding: 0;
 }
