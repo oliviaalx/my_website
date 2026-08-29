@@ -2,7 +2,72 @@
     --primary-colour: pink;
     --primary-background: url('images/gifbground-804-0005.gif');
     --text: palevioletred;
-    --hover-colour:palevioletred;
+    --hover-colour:cornflowerblue;
+    --outline-colour:palevioletred;
+}
+
+.darkmode{
+    --primary-colour: black;
+    --primary-background: url('images/ss133.gif');
+    --text: white;
+    --hover-colour:greenyellow;
+    --outline-colour:white;
+}
+
+#theme-switch{
+    height:50px;
+    width:50px;
+    padding:0;
+    background-color: var(--primary-colour);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor:pointer;
+    border: none;
+    outline: 2px solid var(--outline-colour);
+    color: ;
+}
+
+#theme-switch svg{
+    fill: var(--text)
+}
+
+#theme-switch svg:hover{
+    fill: var(--hover-colour)
+}
+
+/* change icon on button press */
+#theme-switch svg:last-child{
+    display: none;
+}
+
+.darkmode #theme-switch svg:first-child{
+    display: none;
+}
+
+.darkmode #theme-switch svg:last-child{
+    display: block;
+}
+
+
+/* change frame on button press */
+iframe:last-child{
+    display: none;
+}
+
+.darkmode iframe:first-child{
+    display: none;
+}
+
+.darkmode iframe:last-child{
+    display: block;
+    
+}
+
+.time{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 body{
@@ -20,7 +85,7 @@ body{
     display: grid;
     width: 800px;
     grid-template-areas: 
-        "header header ."
+        "header header theme"
         "left-container content right-container"
         "left-container content right-container"
         "left-container content right-container"
@@ -32,7 +97,6 @@ body{
     align-items: start;
     font-size: 14px;
 }
-
 
 .image img{
     width:100%;
@@ -52,14 +116,14 @@ body{
 
 
 .left-container div{
-    outline: 3px solid palevioletred;
+    outline: 2px solid var(--outline-colour);
     background-color: var(--primary-colour);
     padding: 10px; 
 }
 
 
 .right-container div{
-    outline: 3px solid palevioletred;
+    outline: 2px solid var(--outline-colour);
     padding: 10px;
     background-color: var(--primary-colour);
 }
@@ -72,7 +136,7 @@ body{
 .grid-container div.header{
     grid-area: header;
     text-align: center;
-    outline: 3px solid palevioletred;
+    outline: 2px solid var(--outline-colour);
     background-color: var(--primary-colour);
     padding: 10px
 }
@@ -81,7 +145,7 @@ body{
 }
 .grid-container div.content {
   grid-area: content;
-  outline: 3px solid palevioletred;
+  outline: 2px solid var(--outline-colour);
   background-color: var(--primary-colour);
   padding: 10px;
 }
@@ -122,23 +186,14 @@ body{
 }
 
 li a:hover {
-  transform:rotate(-15deg); /* play with this 15deg value, works w/ negatives too! */
-  /* more CSS transform options: https://developer.mozilla.org/en-US/docs/Web/CSS/transform */
+  transform:rotate(-15deg); 
+}
+
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 
 
-/* CRT Overlay (covers everything including h1) */
-body::before,
-body::after {
-  content: "";
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* clicks go through */
-  z-index: 2000;        /* above all content */
-}
 
