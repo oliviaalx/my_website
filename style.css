@@ -15,8 +15,8 @@
 }
 
 #theme-switch{
-    height:50px;
-    width:50px;
+    height: 45px;
+    width: 45px;
     padding:0;
     background-color: var(--primary-colour);
     display: flex;
@@ -24,8 +24,7 @@
     align-items: center;
     cursor:pointer;
     border: none;
-    outline: 2px solid var(--outline-colour);
-    color: ;
+    outline: 1px solid var(--outline-colour);
 }
 
 #theme-switch svg{
@@ -83,19 +82,19 @@ body{
 
 .grid-container{
     display: grid;
-    width: 800px;
+    width: 1000px;
     grid-template-areas: 
         "header header theme"
         "left-container content right-container"
         "left-container content right-container"
         "left-container content right-container"
         ". footer .";
-    grid-template-columns: 1fr 5fr 2fr;
+    grid-template-columns: 0.5fr 5fr 1.5fr;
     gap: 10px;
     font-family: "Space Mono", monospace;
     color: var(--text);
     align-items: start;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .image img{
@@ -116,14 +115,14 @@ body{
 
 
 .left-container div{
-    outline: 2px solid var(--outline-colour);
+    outline: 1px solid var(--outline-colour);
     background-color: var(--primary-colour);
     padding: 10px; 
 }
 
 
 .right-container div{
-    outline: 2px solid var(--outline-colour);
+    outline: 1px solid var(--outline-colour);
     padding: 10px;
     background-color: var(--primary-colour);
 }
@@ -136,7 +135,7 @@ body{
 .grid-container div.header{
     grid-area: header;
     text-align: center;
-    outline: 2px solid var(--outline-colour);
+    outline: 1px solid var(--outline-colour);
     background-color: var(--primary-colour);
     padding: 10px
 }
@@ -145,13 +144,12 @@ body{
 }
 .grid-container div.content {
   grid-area: content;
-  outline: 2px solid var(--outline-colour);
+  outline: 1px solid var(--outline-colour);
   background-color: var(--primary-colour);
   padding: 10px;
 }
 .grid-container div.right-container {
   grid-area: right-container;
-  text-align: center;
   display: grid;
   gap: 10px;
 }
@@ -177,16 +175,12 @@ body{
 
 .navbar li a{
     color: var(--text);
-    padding:5px 5px;
+    padding:5px ;
     display:block;
 }
 
 .navbar a:hover {
-    color: var(--hover-colour)
-}
-
-li a:hover {
-  transform:rotate(-15deg); 
+    color: var(--hover-colour); 
 }
 
 
