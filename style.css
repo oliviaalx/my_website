@@ -50,7 +50,7 @@
 
 
 /* change frame on button press */
-iframe:last-child{
+.time iframe:last-child{
     display: none;
 }
 
@@ -159,7 +159,6 @@ body{
   background-color: transparent;
   padding: 10px
 }
-
 
 
 /* navigation bar */
