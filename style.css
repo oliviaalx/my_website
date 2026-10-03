@@ -2,7 +2,7 @@
     --primary-colour: pink;
     --primary-background: url('images/gifbground-804-0005.gif');
     --text: palevioletred;
-    --hover-colour: white;
+    --hover-colour:white;
     --outline-colour:palevioletred;
 }
 
@@ -106,6 +106,8 @@ body{
 .content{
     height: 400px;
     overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;  
 }
 
 .content h3{
@@ -129,7 +131,7 @@ body{
 
 .grid-container p,h2,h4{
     margin: 0;
-    padding: 0;
+    padding-bottom: 5px;
 }
 
 .grid-container div.header{
@@ -160,12 +162,20 @@ body{
   padding: 10px
 }
 
+.item2 img{
+    display: inline-block; /* Keeps images side by side */
+  max-width: 100%;       /* Makes images responsive */
+  height: auto;
+  margin: 3px; 
+
+}
 
 /* navigation bar */
 .navbar ul {
     list-style-type: none;
     margin: 0px;
     padding: 10px;
+    align-items: start;
 }
 
 .navbar ul li a{
@@ -174,8 +184,9 @@ body{
 
 .navbar li a{
     color: var(--text);
-    padding:5px ;
+    padding:5px;
     display:block;
+    
 }
 
 .navbar a:hover {
@@ -188,5 +199,16 @@ body{
 }
 
 
+/* Flicker overlay */
+body::after {
+  background: rgba(18, 16, 16, 0.1);
+  animation: flicker 0.15s infinite;
+}
+
+/* Flicker animation */
+@keyframes flicker {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.3; }
+}
 
 
